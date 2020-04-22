@@ -50,6 +50,11 @@ public static class GameConstants
 
     public static float BallDeathDuration = 3f;      // The duration after the ball will be destroyed when.
 
+    public static int NumberOfTrajectoryPoints = 20;
+    public static float TrajectoryTimeStep = 0.05f;
+
+    
+    
     /* Color Hex Codes Collected from Color Palette. */
     public static string GreenHexValue = "#45FF5F";
     public static string RedHexValue = "#FF4545";

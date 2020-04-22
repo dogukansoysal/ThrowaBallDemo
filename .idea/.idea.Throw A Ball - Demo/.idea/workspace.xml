@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a83b686b-d45c-434d-aaac-5124d9206e94" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Throw A Ball - Demo/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Throw A Ball - Demo/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Throw A Ball - Demo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Throw A Ball - Demo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BallController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BallController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Ball.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Sphere.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Sphere.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameConstants.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SoLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SoLevel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterfaceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterfaceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TrajectorySimulation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TrajectorySimulation.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +25,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameConstants.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SoLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18B38ADE-9B85-49A5-AFF4-B379F33ECCEC/52/39011922/Physics.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/GameScene.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TrajectorySimulation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/58A34B0A-618D-424B-B5FC-18BB9BCDAC20/a0/7c004ca0/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -34,12 +36,12 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Ball.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InputManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TrajectorySimulation.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameConstants.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SoLevel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BallController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UserInterfaceManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameConstants.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TrajectorySimulation.cs" />
       </list>
     </option>
   </component>
@@ -95,7 +97,7 @@
       <workItem from="1587263610362" duration="6116000" />
       <workItem from="1587334348350" duration="30361000" />
       <workItem from="1587505283218" duration="1281000" />
-      <workItem from="1587508280227" duration="13279000" />
+      <workItem from="1587508280227" duration="17695000" />
     </task>
     <servers />
   </component>

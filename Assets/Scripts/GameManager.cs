@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public Vector3 DragDirection;
     public float DragDistance;
     
+    // Initialization of singleton.
     private void Awake()
     {
         if (!Instance)    // Determine if instance is null
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);    // If we have that already, we don't need another one.
     }
 
-
+    // Start function from MonoBehaviour.
     private void Start()
     {
         LoadLevel();
@@ -53,11 +54,12 @@ public class GameManager : MonoBehaviour
             case InputState.Hold:
                 CalculateDrag();
                 BallController.Instance.DragBall(DragDirection, DragDistance);
-                //DrawTrajectory();
+                TrajectorySimulation.Instance.ShowTrajectory(BallController.Instance.Ball.position, -DragDirection * DragDistance * ThrowForce);
                 break;
             
             // Released input
             case InputState.Released:
+                TrajectorySimulation.Instance.HideTrajectory();
                 CalculateDrag();
                 if (DragDistance < DragDistanceMin)
                     BallController.Instance.ResetBallPosition();
@@ -70,15 +72,7 @@ public class GameManager : MonoBehaviour
     
     
     #region Game Logic Functions
-    /*
-    private void DrawTrajectory()
-    {
-        transform.GetComponent<TrajectorySimulation>().setTrajectoryPoints(BallController.Instance.Ball.position, -DragDirection * DragDistance * ThrowForce);
-    }
-    */
-    
-    
-    
+
     private void CalculateDrag()
     {
         var firstPos = InputManager.Instance.FirstTouchPosition;
