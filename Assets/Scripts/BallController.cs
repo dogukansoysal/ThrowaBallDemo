@@ -6,15 +6,16 @@ using static GameConstants;
 
 public class BallController : MonoBehaviour
 {
-    public static BallController Instance;
+    public static BallController Instance;    // Singleton definition
 
-    private GameManager _gm;
-    private InputManager _im;
-    public BallState BallState;
-    public Transform Ball;
+    private GameManager _gm;    // Game Manager Instance reference 
+    private InputManager _im;    // Input Manager Instance reference 
+    public BallState BallState;    // Current Ball State.
+    public Transform Ball;        // Current ball in the scene.
     
     public Transform BallPrefab;    // Prefab of ball
 
+    // Awake function from MonoBehaviour.
     private void Awake()
     {
         if (!Instance)    // Determine if instance is null
@@ -24,14 +25,14 @@ public class BallController : MonoBehaviour
     }
     
     
-    
+    // Start function from MonoBehaviour.
     private void Start()
     {
         _gm = GameManager.Instance;
         _im = InputManager.Instance;
     }
 
-    // Update is called once per frame.
+    // Update function from MonoBehaviour.
     private void Update()
     {
         if (BallState == BallState.Thrown)
@@ -47,9 +48,12 @@ public class BallController : MonoBehaviour
     }
 
     
-    
+    /// <summary>
+    /// Initialize a ball and set reference to class variable.
+    /// </summary>
     public void InitBall()
     {
+        // If there is a ball on variable, kill it.
         if(Ball)
             KillBall();
         Ball = Instantiate(BallPrefab, transform);
@@ -57,7 +61,11 @@ public class BallController : MonoBehaviour
     }
     
     
-    
+    /// <summary>
+    /// Dragging the ball Mechanic.
+    /// </summary>
+    /// <param name="direction"> Direction of the drag</param>
+    /// <param name="distance"> Distance of the drag</param>
     public void DragBall(Vector3 direction, float distance)
     {
         // Not a Number check
@@ -74,7 +82,9 @@ public class BallController : MonoBehaviour
     }
     
     
-    
+    /// <summary>
+    /// Throwing ball with the drag direction, distance and throw force (from GameConstants).
+    /// </summary>
     public void ThrowBall()
     {
         BallState = BallState.Thrown;
@@ -94,7 +104,9 @@ public class BallController : MonoBehaviour
     }
     
     
-    
+    /// <summary>
+    /// Kill ball with a time delay (from GameConstants) and make reference as null.
+    /// </summary>
     public void KillBall()
     {
         Destroy(Ball.gameObject, BallDeathDuration);

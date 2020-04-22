@@ -6,37 +6,40 @@ using UnityEngine.UI;
 
 public class UserInterfaceManager : MonoBehaviour
 {
-    public static UserInterfaceManager Instance;
+    public static UserInterfaceManager Instance;    // Singleton definition
     
-    public TextMeshProUGUI ScoreText;
-    public TextMeshProUGUI StreakText;
-    public TextMeshProUGUI RemainingBallText;
-    public Transform BallScoreHolder;
-    public Transform BallImagePrefab;
+    public TextMeshProUGUI ScoreText;                 // Score text reference on in-Game screen
+    public TextMeshProUGUI StreakText;                // Streak text reference on in-Game screen
+    public TextMeshProUGUI RemainingBallText;        // Remaining Ball text reference on in-Game screen
+    public Transform BallScoreHolder;                // Ball score indicator image holder reference on in-Game screen
+    public Transform BallImagePrefab;                // Ball image prefab which will be used as indicator.
 
     
-    public TextMeshProUGUI RestartMenuScoreText;
+    public TextMeshProUGUI RestartMenuScoreText;    // Score text reference on Restart Menu screen
     
-    public GameObject MainMenuPanel;
-    public GameObject RestartMenuPanel;
-    public GameObject GamePanel;
+    public GameObject MainMenuPanel;                // Main Menu panel and it's UIElements parent.
+    public GameObject RestartMenuPanel;             // Restart Menu panel and it's UIElements parent.
+    public GameObject GamePanel;                    // in-Game UIElements parent.
 
-    public TextMeshProUGUI RestartMenuWinText;
-    public TextMeshProUGUI RestartMenuLoseText;
+    public TextMeshProUGUI RestartMenuWinText;      // Win Text reference on Restart Menu screen
+    public TextMeshProUGUI RestartMenuLoseText;     // Lose Text reference on Restart Menu screen
 
-    
+    // Awake function from MonoBehaviour.
     private void Awake()
     {
-        if (Instance != null) {
-            Destroy(gameObject);
-        }else{
-            Instance = this;
-        }
+        if (!Instance)    // Determine if instance is null
+            Instance = this;    // Assign instance
+        else if(Instance != this)    // Determine if instance already assigned
+            Destroy(gameObject);    // If we have that already, we don't need another one.
     }
 
 
+    // Active Panel and UI Elements on in-Game screen.
     #region Game UI
     
+    /// <summary>
+    /// Show in-Game Panel.
+    /// </summary>
     public void ShowGamePanel()
     {
         InitBallScoreImages();
@@ -48,14 +51,18 @@ public class UserInterfaceManager : MonoBehaviour
     }
     
     
-    
+    /// <summary>
+    /// Hides in Game screen panel and it's elements.
+    /// </summary>
     public void HideGamePanel()
     {
         GamePanel.SetActive(false);
     }
 
     
-    
+    /// <summary>
+    /// Updates all game panel in Game screen.
+    /// </summary>
     public void UpdateGamePanel()
     {
         UpdateScoreText();
@@ -66,14 +73,18 @@ public class UserInterfaceManager : MonoBehaviour
     }
     
     
-    
+    /// <summary>
+    /// Updates score text in Game screen.
+    /// </summary>
     private void UpdateScoreText()
     {
         ScoreText.text = GameManager.Instance.score.ToString();
     }
 
     
-    
+    /// <summary>
+    /// Updates streak text in Game screen.
+    /// </summary>
     private void UpdateStreakText()
     {
         StreakText.enabled = GameManager.Instance.streak > 0;
@@ -82,40 +93,40 @@ public class UserInterfaceManager : MonoBehaviour
     }
     
     
-    
+    /// <summary>
+    /// Updates remaining Ball text in Game screen.
+    /// </summary>
     private void UpdateRemainingBallText()
     {
         RemainingBallText.text = "X" + GameManager.Instance.Level.ballCount.ToString();
     }
     
     
-    
+    /// <summary>
+    /// Update required ball indicator images.
+    /// </summary>
     private void UpdateBallScoreImages()
     {
-        
-        var ballScore = GameManager.Instance.ballScore;
-        for (int i = 0; i < ballScore; i++)
+        // Color as "green" for each ball score.
+        for (int i = 0; i < GameManager.Instance.ballScore; i++)
         {
             ColorUtility.TryParseHtmlString(GameConstants.GreenHexValue, out var tempColor);
-            BallScoreHolder.GetChild(i).GetComponent<Image>().color = tempColor;
-        }
-
-        for (int i = ballScore; i < BallScoreHolder.childCount; i++)
-        {
-            ColorUtility.TryParseHtmlString(GameConstants.GrayHexValue, out var tempColor);
             BallScoreHolder.GetChild(i).GetComponent<Image>().color = tempColor;
         }
     }
 
 
-
+    /// <summary>
+    /// Initializing required ball indicator images with the count of level's settings.
+    /// </summary>
     private void InitBallScoreImages()
     {
+        // If has child already, destroy all.
         while (BallScoreHolder.childCount > 0)
         {
             DestroyImmediate(BallScoreHolder.GetChild(0).gameObject);
         }
-
+        // Spawn new Indicator images.
         for (int i = 0; i < GameManager.Instance.Level.requiredBall; i++)
         {
             Instantiate(BallImagePrefab, BallScoreHolder);
@@ -125,8 +136,12 @@ public class UserInterfaceManager : MonoBehaviour
     #endregion
 
 
+    // Active Panel and UI Elements on Main Menu screen.
     #region Main Menu UI
     
+    /// <summary>
+    /// Show main menu panel and it's elements.
+    /// </summary>
     public void ShowMainMenuPanel()
     {
         MainMenuPanel.SetActive(true);
@@ -135,7 +150,9 @@ public class UserInterfaceManager : MonoBehaviour
     }
     
     
-    
+    /// <summary>
+    /// Hide main menu panel and it's elements.
+    /// </summary>
     public void HideMainMenuPanel()
     {
         MainMenuPanel.SetActive(false);
@@ -143,10 +160,12 @@ public class UserInterfaceManager : MonoBehaviour
     #endregion
     
     
-    
+    // Active Panel and UI Elements on Restart Menu screen.
     #region Restart Menu UI
 
-    
+    /// <summary>
+    /// Show restart menu panel and it's elements.
+    /// </summary>
     public void ShowRestartMenuPanel(bool isWin)
     {
         UpdateRestartMenuPanel(isWin);
@@ -157,14 +176,18 @@ public class UserInterfaceManager : MonoBehaviour
     }
 
     
-    
+    /// <summary>
+    /// Hide restart menu panel and it's elements.
+    /// </summary>
     public void HideRestartMenuPanel()
     {
         RestartMenuPanel.SetActive(false);
     }
 
 
-
+    /// <summary>
+    /// Update restart menu panel and it's elements.
+    /// </summary>
     private void UpdateRestartMenuPanel(bool isWin)
     {
         UpdateRestartMenuScoreText();
@@ -174,20 +197,24 @@ public class UserInterfaceManager : MonoBehaviour
         }
         else
         {
-            ShowRestartMenuLostText();
+            ShowRestartMenuLoseText();
         }
     }
     
     
     
-    
+    /// <summary>
+    /// Show restart menu score text
+    /// </summary>
     public void UpdateRestartMenuScoreText()
     {
         RestartMenuScoreText.text = "Score: " + GameManager.Instance.score.ToString();
     }
     
     
-    
+    /// <summary>
+    /// Show restart menu win text.
+    /// </summary>
     public void ShowRestartMenuWinText()
     {
         RestartMenuWinText.enabled = true;
@@ -195,8 +222,10 @@ public class UserInterfaceManager : MonoBehaviour
     }
 
     
-    
-    public void ShowRestartMenuLostText()
+    /// <summary>
+    /// Show restart menu lose text.
+    /// </summary>
+    public void ShowRestartMenuLoseText()
     {
         RestartMenuLoseText.enabled = true;
         RestartMenuWinText.enabled = false;

@@ -8,7 +8,7 @@ using static GameConstants;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance;    // Singleton definition
 
     /* Prefabs */
     public Transform currentLevelItems;

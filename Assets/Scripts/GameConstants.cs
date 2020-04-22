@@ -6,6 +6,10 @@ using UnityEngine.SocialPlatforms;
 public static class GameConstants
 {
     #region State Machines
+    
+    /// <summary>
+    /// Game state keeps the current game state if it's playing, paused or in menu.
+    /// </summary>
     public enum GameState
     {
         Playing,
@@ -13,6 +17,9 @@ public static class GameConstants
         Menu
     }
 
+    /// <summary>
+    /// Input state keeps the current input type.
+    /// </summary>
     public enum InputState
     {
         FirstTouch,
@@ -21,6 +28,9 @@ public static class GameConstants
         None
     }
     
+    /// <summary>
+    /// Ball State keeps the current Ball Controller's ball's state
+    /// </summary>
     public enum BallState
     {
         Ready,
@@ -33,14 +43,14 @@ public static class GameConstants
     
     #region Variables
 
-    public static float DragDistanceMin = 0.4f;
-    public static float DragDistanceMax = 2f;
+    public static float DragDistanceMin = 0.4f;      // Minimum required distance of drag
+    public static float DragDistanceMax = 2f;        // Maximum required distance of drag
     
-    public static float ThrowForce = 20f;
+    public static float ThrowForce = 20f;            // Throw force of ball
 
-    public static float BallDeathDuration = 3f;
+    public static float BallDeathDuration = 3f;      // The duration after the ball will be destroyed when.
 
-
+    /* Color Hex Codes Collected from Color Palette. */
     public static string GreenHexValue = "#45FF5F";
     public static string RedHexValue = "#FF4545";
     public static string YellowHexValue = "#F5FF3B";
@@ -48,7 +58,7 @@ public static class GameConstants
 
     #endregion
 
-
+    // Common static functions.
     #region Functions
     /// <summary>
     /// Exception handling for NaN (Not a Number)

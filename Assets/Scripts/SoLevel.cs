@@ -10,9 +10,10 @@ public class SoLevel : ScriptableObject
     [Range(1,10)]
     public int ballCount;
     
+    // Required ball count to pass the level.
     [Range(1,10)]
     public int requiredBall;
     
-    // 
+    // Level scene items for playable game.
     public Transform levelItemsPrefab;
 }
