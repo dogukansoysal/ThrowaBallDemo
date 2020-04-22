@@ -1,4 +1,4 @@
-# ThrowaBallDemo
+# Throw a Ball - Game Demo Project
 Throw a Ball Game - Demo Project
 
 This game was developed as a Demo.
