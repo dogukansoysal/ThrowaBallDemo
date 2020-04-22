@@ -2,7 +2,7 @@
 Throw a Ball Game - Demo Project
 
 This game was developed as a Demo with Unity3D Game Engine and C#.
-
+Recommended Screen Resolution : 1080 x 2160 pixels (on Portrait)
 ## Purpose of The Game
 The main mechanic is throwing a ball to the hole and getting highscore.
 Player have to throw all required balls (which is shown on top of the screen) into the hole or else, will lose.
