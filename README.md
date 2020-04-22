@@ -1,7 +1,7 @@
 # Throw a Ball - Game Demo Project
 Throw a Ball Game - Demo Project
 
-This game was developed as a Demo.
+This game was developed as a Demo with Unity3D Game Engine and C#.
 
 ## Purpose of The Game
 The main mechanic is throwing a ball to the hole and getting highscore.
